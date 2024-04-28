@@ -3,6 +3,12 @@ class UserCourseController < ApplicationController
   def enroll_course
     authorize! :enroll_course, UserCourseRecord
 
+    course = CourseRecord.find_by(id: user_course_params[:course_id])
+    if course.nil?
+      return render json: { message: "Course not found" },
+                    status: :bad_request
+    end
+
     user_course = UserCourseRecord.find_by(user_id: @current_user.id,
                                            course_id: user_course_params[:course_id])
     if user_course.present?
