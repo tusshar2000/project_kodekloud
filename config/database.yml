@@ -8,6 +8,10 @@ default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  username: <%= ENV['KODEKLOUD_DB_USERNAME'] %>
+  password: <%= ENV['KODEKLOUD_DB_PASSWORD'] %>
+  host: <%= ENV['KODEKLOUD_DB_HOST'] %>
+  port: <%= ENV['KODEKLOUD_DB_PORT'] %>
   schema_search_path: <%= ENV['SEQUENT_MIGRATION_SCHEMAS'] || 'public, sequent_schema, view_schema' %>
 
 development:

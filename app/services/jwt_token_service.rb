@@ -1,5 +1,5 @@
 class JwtTokenService
-  SECRET_KEY = 'secretkey#1'
+  SECRET_KEY = ENV['JWT_SECRET_KEY'] 
   TOKEN_EXPIRATION_TIME = 1.day.to_i
 
   def self.encode(payload)
