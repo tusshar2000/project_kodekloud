@@ -12,11 +12,11 @@ default: &default
 
 development:
   <<: *default
-  database: kodekloud_dev
+  database: project_kodekloud_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: kodekloud_test
+  database: project_kodekloud_test
