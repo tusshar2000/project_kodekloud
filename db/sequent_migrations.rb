@@ -1,4 +1,4 @@
-VIEW_SCHEMA_VERSION = 5
+VIEW_SCHEMA_VERSION = 2
 
 class SequentMigrations < Sequent::Migrations::Projectors
   def self.version
@@ -13,13 +13,13 @@ class SequentMigrations < Sequent::Migrations::Projectors
       '2' => [
         Course::CourseProjector
       ],
-      '3' => [
+      '2' => [
         Lesson::LessonProjector
       ],
-      '4' => [
+      '2' => [
         UserCourse::UserCourseProjector
       ],
-      '5' => [
+      '2' => [
         UserLessonCompleted::UserLessonCompletedProjector
       ]
     }
