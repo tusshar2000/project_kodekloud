@@ -1,6 +1,36 @@
 # Add your own tasks in files placed in lib/tasks ending in .rake,
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
-require_relative "config/application"
+require_relative 'config/application'
 
 Rails.application.load_tasks
+
+# Sequent requires a `SEQUENT_ENV` environment to be set
+# next to a `RAILS_ENV`
+ENV['SEQUENT_ENV'] = ENV['RAILS_ENV'] ||= 'development'
+
+require 'sequent/rake/migration_tasks'
+
+Sequent::Rake::MigrationTasks.new.register_tasks!
+
+# The dependency of sequent:init on :environment ensures the Rails app is loaded
+# when running the sequent migrations. This is needed otherwise
+# the sequent initializer doesn't run which is needed to run
+# these rake tasks.
+task 'sequent:init' => [:environment]
+task 'sequent:migrate:init' => [:sequent_db_connect]
+
+task 'sequent_db_connect' do
+  Sequent::Support::Database.connect!(ENV['SEQUENT_ENV'])
+end
+
+# Create custom rake task setting the SEQUENT_MIGRATION_SCHEMAS for
+# running the Rails migrations
+task :migrate_public_schema do
+  ENV['SEQUENT_MIGRATION_SCHEMAS'] = 'public'
+  Rake::Task['db:migrate'].invoke
+  ENV['SEQUENT_MIGRATION_SCHEMAS'] = nil
+end
+
+# Prevent rails db:migrate from being executed directly.
+Rake::Task['db:migrate'].enhance([:'sequent:db:dont_use_db_migrate_directly'])
