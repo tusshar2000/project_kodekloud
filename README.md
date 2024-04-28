@@ -2,6 +2,7 @@
 ## Requirement
     rvm or rbenv to install ruby-3.1.2
     postgresql installed
+    git checkout local # use local branch
 ## Running
     bundle install
     rails db:create
