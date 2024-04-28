@@ -175,3 +175,4 @@
 ## Issues/Todo
 -   rspec and prod deployments throw error 
     `#<ActiveRecord::StatementInvalid: PG::UndefinedTable: ERROR:  relation "course_records" does not exist`
+-   prod deployment uri `https://project-kodekloud.onrender.com`
