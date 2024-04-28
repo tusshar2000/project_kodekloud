@@ -2,7 +2,7 @@
 ## Requirement
     rvm or rbenv to install ruby-3.1.2
     postgresql installed
-    # use local branch to run server
+    # use local branch to run server because main branch has env variables set
     git checkout local
 ## Running
     bundle install
