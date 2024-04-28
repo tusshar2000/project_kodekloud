@@ -1,4 +1,4 @@
-# Staff Scheduler
+# LMS
 ## Requirement
     rvm or rbenv to install ruby-3.1.2
     postgresql installed
