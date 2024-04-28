@@ -61,6 +61,9 @@
 
 -   POST http://127.0.0.1:1337/course/create_course
     -   This will create a course, only user with role instructor can create a course
+    -   headers
+        -   Authorization:Bearer
+        -   Content-Type: application/json
     -   Payload:
         -   {
                 "course": {
@@ -78,6 +81,9 @@
 
 -   POST http://127.0.0.1:1337/lesson/create_lesson
     -   This will create a lesson in a course, only user with role instructor can create a lesson
+    -   headers
+        -   Authorization:Bearer
+        -   Content-Type: application/json
     -   Payload:
         -   {
                 "lesson": {
@@ -96,6 +102,9 @@
 
 -   POST http://127.0.0.1:1337/enroll_course
     -   student can enroll in a course with this API, instructor cannot access this API
+    -   headers
+        -   Authorization:Bearer
+        -   Content-Type: application/json
     -   Payload:
         -   {
                 "course_id": 1
@@ -110,6 +119,9 @@
 
 -   DELETE http://127.0.0.1:1337/unenroll_course/:course_id
     -   student can unenroll in a course with this API, instructor cannot access this API
+    -   headers
+        -   Authorization:Bearer
+        -   Content-Type: application/json
     -   Response:
         -   statuscode: 201
             -   {
@@ -121,6 +133,9 @@
             
 -   POST http://127.0.0.1:1337/lesson_completed
     -   To mark a particular lesson completed from a course a student is enrolled to
+    -   headers
+        -   Authorization:Bearer
+        -   Content-Type: application/json
     -   Payload
         -    {
                 "course_id": 1,
@@ -136,6 +151,9 @@
 
 -   GET http://127.0.0.1:1337/user_course_details
     -   get student's course completion details
+    -   headers
+        -   Authorization:Bearer
+        -   Content-Type: application/json
     -   Response:
         -   statuscode: 200
             -   [
