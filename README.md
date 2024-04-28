@@ -13,7 +13,7 @@
     bundle exec rake sequent:migrate:offline
     rails s
 ## Endpoints
-- POST http://127.0.0.1:1337/users
+-   POST http://127.0.0.1:1337/users
     -   This will create users
     -   To create user of type student
         -   Payload: {
@@ -107,7 +107,7 @@
         -   statuscode: 401, 400, 404
             -   appropriate error message is shown
 
-DELETE http://127.0.0.1:1337/unenroll_course/:course_id
+-   DELETE http://127.0.0.1:1337/unenroll_course/:course_id
     -   student can unenroll in a course with this API, instructor cannot access this API
     -   Response:
         -   statuscode: 201
@@ -118,7 +118,7 @@ DELETE http://127.0.0.1:1337/unenroll_course/:course_id
             -   appropriate error message is shown
 
             
-POST http://127.0.0.1:1337/lesson_completed
+-   POST http://127.0.0.1:1337/lesson_completed
     -   To mark a particular lesson completed from a course a student is enrolled to
     -   Payload
         -    {
@@ -133,7 +133,7 @@ POST http://127.0.0.1:1337/lesson_completed
         -   statuscode: 401, 400
             -   appropriate error message is shown
 
-GET http://127.0.0.1:1337/user_course_details
+-   GET http://127.0.0.1:1337/user_course_details
     -   get student's course completion details
     -   Response:
         -   statuscode: 200
