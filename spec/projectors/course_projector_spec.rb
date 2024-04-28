@@ -7,7 +7,7 @@ describe Course::CourseProjector do
 
   context Course::Events::CourseAdded do
     it 'creates a projection' do
-      course_projector.handle_message(post_acourse_addeddded)
+      course_projector.handle_message(course_added)
       expect(CourseRecord.count).to eq(1)
       record = CourseRecord.first
       expect(record.aggregate_id).to eq(aggregate_id)

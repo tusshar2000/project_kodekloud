@@ -41,4 +41,7 @@ group :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'database_cleaner-active_record'
+  gem 'simplecov'
+  gem 'simplecov-json', github: 'pi-chan/simplecov-json'
 end
